@@ -4,7 +4,7 @@ let createBtn = document.querySelector('.create__btn')
 let tegs = document.getElementById('tegs')
 let text = document.getElementById('todo__text')
 let number = 1
-let deleteBtn = document.querySelectorAll('delete__btn')
+let deleteBtn = document.getElementsByClassName('delete__btn')
 let deleteAllBtn = document.querySelector('.delete__all__btn')
 
 let tasks = []
@@ -20,7 +20,6 @@ createBtn.addEventListener("click", function() {
     creator(number, todotextValue, tegValue, setDate())
     render(tasks)
     number++
-    console.log(deleteBtn)
 })
 
 function moveTrash (element) {
@@ -30,7 +29,7 @@ function moveTrash (element) {
     tasks.split(index, 1)
 }
 
-// deleteBtn.addEventListener("click", moveTrash)
+deleteBtn.addEventListener("click", moveTrash)
 
 // deleteAllBtn.addEventListener("click", function() {
 //     let list = document.getElementsByClassName('.todo__item')
