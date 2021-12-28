@@ -16,6 +16,10 @@ createBtn.addEventListener("click", function() {
     creator(number, todotextValue, tegValue, setDate())
     render(tasks)
     number++
+
+})
+
+deleteAllBtn.addEventListener("click", function() {
     
 })
 
@@ -31,12 +35,15 @@ const creator = (numberValue, textValue, tagValue, dateValue) => {
     console.log(tasks)
 }
 
+
+
 const render = (tasks) => {
     todoList.innerHTML = ''
 
     tasks.forEach(element => {
         const liElement = document.createElement('li')
               liElement.className = 'todo__item'
+              liElement.id = `todo__item__${element.number}`
               liElement.insertAdjacentHTML('afterbegin', `
                           <span class="number"> ${element.number}</span>
                           <span class="text">${element.text}</span>
@@ -48,12 +55,12 @@ const render = (tasks) => {
     });
 }
 
+
 const setDate = () => {
     let today = new Date()
     let dd = today.getDate();
     let mm = today.getMonth()+1; 
     let yyyy = today.getFullYear();
-
-    let dateNow = mm+'-'+dd+'-'+yyyy
+    let dateNow = `${dd}-${mm}-${yyyy} ` 
     return dateNow
 }
